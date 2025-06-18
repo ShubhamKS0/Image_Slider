@@ -3,37 +3,32 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Auto Image Slideshow</title>
+  <title>Fullscreen Auto Image Slideshow</title>
   <style>
-    body {
+    html, body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #111;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
-
-    .slider {
-      width: 80%;
-      max-width: 800px;
-      height: 500px;
+      padding: 0;
       overflow: hidden;
-      border-radius: 12px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+      height: 100%;
+      width: 100%;
     }
-
+ 
+    .slider {
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+    }
+ 
     .slides {
       display: flex;
       width: 100%;
       height: 100%;
       transition: transform 0.8s ease-in-out;
     }
-
+ 
     .slides img {
-      width: 100%;
-      height: 100%;
+      width: 100vw;
+      height: 100vh;
       object-fit: cover;
       flex-shrink: 0;
     }
@@ -49,20 +44,20 @@
       <img src="https://acszigalen.cloudimg.io/v7/https%3A%2F%2Flive-resources-e2e-sales.ksb.com%2Fresource%2Fblob%2F621546%2Fae6d43332d2aeb4b33cb416b4eade383%2Fpic-stage-data.jpg?height=1200&ci_url_encoded=1&force_format=webp&q=60" alt="Slide 5">
     </div>
   </div>
-
+ 
   <script>
     const slideContainer = document.getElementById("slideContainer");
     const totalSlides = slideContainer.children.length;
     let currentIndex = 0;
-
+ 
     function showSlide(index) {
-      slideContainer.style.transform = `translateX(-${index * 100}%)`;
+      slideContainer.style.transform = `translateX(-${index * 100}vw)`;
     }
-
+ 
     setInterval(() => {
       currentIndex = (currentIndex + 1) % totalSlides;
       showSlide(currentIndex);
-    }, 3000); // Change every 3 seconds
+    }, 3000); // Slide change every 3 seconds
   </script>
 </body>
 </html>
