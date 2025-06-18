@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Auto Image Slideshow</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #111;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .slider {
+      width: 80%;
+      max-width: 800px;
+      height: 500px;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    }
+
+    .slides {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.8s ease-in-out;
+    }
+
+    .slides img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="slider">
+    <div class="slides" id="slideContainer">
+      <img src="https://acszigalen.cloudimg.io/v7/https%3A%2F%2Flive-resources-e2e-sales.ksb.com%2Fresource%2Fimage%2F243698%2Flandscape_ratio16x9%2F3300%2F1856%2F2e3adf79efcc8d27f8df06e538f58ae%2F6F0998F73BEDC353600C8CBE0C8B7EEF%2Fpic-product-catalogue.jpg?height=507&width=900&ci_url_encoded=1&force_format=webp&q=60" alt="Slide 1">
+      <img src="https://acszigalen.cloudimg.io/v7/https%3A%2F%2Flive-resources-e2e-sales.ksb.com%2Fresource%2Fimage%2F303304%2Flandscape_ratio16x9%2F1800%2F1013%2Fc700fa027b2952f87681ae1430eb4df2%2FE6F47D8791D9D89A884F80230DB99E40%2Fpic-etanorm.jpg?height=507&width=900&ci_url_encoded=1&force_format=webp&q=60" alt="Slide 2">
+      <img src="https://acszigalen.cloudimg.io/v7/https%3A%2F%2Flive-resources-e2e-sales.ksb.com%2Fresource%2Fimage%2F1086090%2Flandscape_ratio16x9%2F3300%2F1856%2F8505e9e82923c04f6d10bf22afcad258%2FF9081CE85CA9B0D9DBE34F67F3371A41%2Fpic-product-2.jpg?height=675&width=1200&ci_url_encoded=1&force_format=webp&q=60" alt="Slide 3">
+      <img src="https://acszigalen.cloudimg.io/v7/https%3A%2F%2Flive-resources-e2e-sales.ksb.com%2Fresource%2Fimage%2F564694%2Flandscape_ratio16x9%2F3300%2F1856%2Fed1af1315102c10ae06852c43c2de6a9%2FBB6E379B128228A4C5B4E9AC7D738F0B%2Fpic-product-3.jpg?height=675&width=1200&ci_url_encoded=1&force_format=webp&q=60" alt="Slide 4">
+      <img src="https://acszigalen.cloudimg.io/v7/https%3A%2F%2Flive-resources-e2e-sales.ksb.com%2Fresource%2Fblob%2F621546%2Fae6d43332d2aeb4b33cb416b4eade383%2Fpic-stage-data.jpg?height=1200&ci_url_encoded=1&force_format=webp&q=60" alt="Slide 5">
+    </div>
+  </div>
+
+  <script>
+    const slideContainer = document.getElementById("slideContainer");
+    const totalSlides = slideContainer.children.length;
+    let currentIndex = 0;
+
+    function showSlide(index) {
+      slideContainer.style.transform = `translateX(-${index * 100}%)`;
+    }
+
+    setInterval(() => {
+      currentIndex = (currentIndex + 1) % totalSlides;
+      showSlide(currentIndex);
+    }, 3000); // Change every 3 seconds
+  </script>
+</body>
+</html>
